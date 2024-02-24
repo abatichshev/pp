@@ -4,6 +4,7 @@ def imdb_above_5_5(movie):
 
 print(imdb_above_5_5(movies[0])) 
 
+
 def movies_above_5_5(movies):
     return [movie for movie in movies if movie["imdb"] > 5.5]
 
@@ -28,7 +29,6 @@ def average_imdb_score_by_category(movies, category):
 
 
 print(average_imdb_score_by_category(movies, "Romance"))
-
 
 
 

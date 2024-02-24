@@ -87,7 +87,7 @@ def sph_volume(radius):
     
     return volume
 
-radius = int(input("Введите радиус: "))
+radius = int(input())
 
 volume = sph_volume(radius)
 
