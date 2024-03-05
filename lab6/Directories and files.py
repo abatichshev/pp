@@ -11,7 +11,7 @@ def list_directories_and_files(path):
             files.append(item)
     return directories, files
 
-path = '/path/to/your/directory'
+path = "C:\Users\ASUS\Desktop\path"
 directories, files = list_directories_and_files(path)
 print("Directories:", directories)
 print("Files:", files)
@@ -28,7 +28,7 @@ def check_access(path):
     }
     return access
 
-path = '/path/to/your/file_or_directory'
+path = "C:\Users\ASUS\Desktop\path"
 access = check_access(path)
 print(access)
 
@@ -44,7 +44,7 @@ def test_existence_and_get_parts(path):
     else:
         return "Path does not exist", None
 
-path = '/path/to/your/file_or_directory'
+path ="C:\Users\ASUS\Desktop\path"
 filename, directory = test_existence_and_get_parts(path)
 print("Filename:", filename)
 print("Directory:", directory)
@@ -55,7 +55,7 @@ def count_lines(file_path):
     with open(file_path, 'r') as file:
         return sum(1 for line in file)
 
-file_path = '/path/to/your/file.txt'
+file_path = "C:\Users\ASUS\Desktop\path"
 print("Number of lines:", count_lines(file_path))
 
 
@@ -64,7 +64,7 @@ def write_list_to_file(file_path, data):
         for item in data:
             file.write(str(item) + '\n')
 
-file_path = '/path/to/your/output_file.txt'
+file_path = "C:\Users\ASUS\Desktop\path"
 data = ['apple', 'banana', 'cherry', 'date']
 write_list_to_file(file_path, data)
 
@@ -87,8 +87,8 @@ def copy_file(source_file, destination_file):
             for line in source:
                 destination.write(line)
 
-source_file = '/path/to/source_file.txt'
-destination_file = '/path/to/destination_file.txt'
+source_file = '"C:\Users\ASUS\Desktop\path.txt.docx"'
+destination_file = "C:\Users\ASUS\Desktop\path"
 copy_file(source_file, destination_file)
 
 
@@ -102,7 +102,7 @@ def delete_file(file_path):
     else:
         return "File does not exist"
 
-file_path = '/path/to/your/file.txt'
+file_path = "C:\Users\ASUS\Desktop\path"
 print(delete_file(file_path))
 
 
