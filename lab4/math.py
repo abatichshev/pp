@@ -5,7 +5,7 @@ radian = degree * (math.pi / 180)
 print("Output radian:", radian)
 
 
-    height = float(input("Height: "))
+height = float(input("Height: "))
 base1 = float(input("first value: "))
 base2 = float(input("second value: "))
 area = 0.5 * (base1 + base2) * height

@@ -22,7 +22,7 @@ def average_imdb_score(movies):
 
 
 print(average_imdb_score(movies))
-
+    
 def average_imdb_score_by_category(movies, category):
     category_movies = movies_by_category(movies, category)
     return average_imdb_score(category_movies)
