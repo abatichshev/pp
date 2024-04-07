@@ -28,7 +28,7 @@ COIN_THRESHOLD = 10
 ENEMY_SPEED_INCREMENT = 1
 
 # Load images and set up the display
-background = pygame.image.load("AnimatedStreet.png")
+background = pygame.image.load("lab9\AnimatedStreet.png")
 DISPLAYSURF = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
 pygame.display.set_caption("Game")
 
@@ -41,7 +41,7 @@ game_over = font.render("Game Over", True, BLACK)
 class Enemy(pygame.sprite.Sprite):
     def __init__(self):
         super().__init__()
-        self.image = pygame.image.load("Enemy.png")
+        self.image = pygame.image.load("lab9\Enemy.png")
         self.rect = self.image.get_rect()
         self.rect.center = (random.randint(40, SCREEN_WIDTH - 40), 0)
 
@@ -74,7 +74,7 @@ class Coin(pygame.sprite.Sprite):
 class Player(pygame.sprite.Sprite):
     def __init__(self):
         super().__init__()
-        self.image = pygame.image.load("Player.png")
+        self.image = pygame.image.load("lab9\Player.png")
         self.rect = self.image.get_rect()
         self.rect.center = (160, 520)
 
@@ -148,7 +148,7 @@ while True:
     # Check collision with enemies
     if pygame.sprite.spritecollideany(P1, enemies):
         # Handle collision with the player
-        pygame.mixer.Sound('crash.wav').play()
+        pygame.mixer.Sound('lab9\crash.wav').play()
         time.sleep(0.5)
 
         DISPLAYSURF.fill(RED)

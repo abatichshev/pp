@@ -54,7 +54,7 @@ game_score_fonts = pygame.font.SysFont('comicsansms', 40)
 game_score_rect = game_score_fonts.render(f'Your game score is: {game_score}', True, (0, 0, 0)).get_rect(center=(210, 20))
 
 #Catching sound
-collision_sound = pygame.mixer.Sound('catch.mp3')
+collision_sound = pygame.mixer.Sound('lab9\catch.mp3')
 
 def detect_collision(dx, dy, ball, rect):
     if dx > 0:

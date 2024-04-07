@@ -56,11 +56,16 @@ class Rhombus(Shape):
             x1, y1 = self.points[1]
             pygame.draw.polygon(surface, BLACK, [(x0 + (x1 - x0) // 2, y0), (x0, y0 + (y1 - y0) // 2), (x0 + (x1 - x0) // 2, y1), (x1, y0 + (y1 - y0) // 2)], 2)
 
+class FreeLine(Shape):
+    def draw(self, surface):
+        if len(self.points) > 1:
+            pygame.draw.lines(surface, BLACK, False, self.points, 2)
 
 # Main function
 def main():
     shapes = []
     current_shape = None
+    drawing = False
     running = True
 
     while running:
@@ -71,27 +76,26 @@ def main():
                 if event.button == 1:  # Left mouse button
                     if pygame.key.get_pressed()[pygame.K_s]:  # Draw square
                         current_shape = Square()
-                        shapes.append(current_shape)
-                        current_shape.points.append(event.pos)
                     elif pygame.key.get_pressed()[pygame.K_r]:  # Draw right triangle
                         current_shape = RightTriangle()
-                        shapes.append(current_shape)
-                        current_shape.points.append(event.pos)
                     elif pygame.key.get_pressed()[pygame.K_e]:  # Draw equilateral triangle
                         current_shape = EquilateralTriangle()
-                        shapes.append(current_shape)
-                        current_shape.points.append(event.pos)
                     elif pygame.key.get_pressed()[pygame.K_h]:  # Draw rhombus
                         current_shape = Rhombus()
-                        shapes.append(current_shape)
-                        current_shape.points.append(event.pos)
+                    else:  # Draw free line by default
+                        drawing = True
+                        current_shape = FreeLine()
+                    shapes.append(current_shape)
+                    current_shape.points.append(event.pos)
             elif event.type == pygame.MOUSEBUTTONUP:
                 if event.button == 1:  # Left mouse button
-                    current_shape.points.append(event.pos)
+                    if not drawing:
+                        current_shape.points.append(event.pos)
+                    drawing = False
                     current_shape = None
             elif event.type == pygame.MOUSEMOTION:
-                if current_shape is not None:
-                    current_shape.points[-1] = event.pos
+                if drawing:
+                    current_shape.points.append(event.pos)
 
         screen.fill(BG_COLOR)
 
@@ -106,4 +110,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
